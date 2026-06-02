@@ -1,14 +1,16 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { PostCreate } from './post/post-create/post-create';
 import { FormsModule } from '@angular/forms';
+import { Header } from './header/header';
 
 @NgModule({
-  declarations: [App, PostCreate],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [App, PostCreate, Header],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MatToolbarModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

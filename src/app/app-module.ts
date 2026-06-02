@@ -1,12 +1,12 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { PostCreate } from './post/post-create/post-create';
 import { FormsModule } from '@angular/forms';
 import { Header } from './header/header';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [App, PostCreate, Header],

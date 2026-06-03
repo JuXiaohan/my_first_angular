@@ -10,13 +10,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import{ MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { PostList } from './post/post-list/post-list';
 
 @NgModule({
-  declarations: [App, PostCreate, Header],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatExpansionModule],
+  declarations: [App, PostCreate, Header, PostList],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule,
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

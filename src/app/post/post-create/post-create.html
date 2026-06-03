@@ -1,8 +1,20 @@
-<h2>post-create<h2>
+<mat-card>
+    <form
+        class="form-container"
+        (submit)="addPost(postCreateForm)"
+        #postCreateForm="ngForm"
+    >
+        <mat-form-field class="full-width-field">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="title part" name="title" ngModel required>
+        </mat-form-field>
+        <mat-form-field class="full-width-field">
+            <mat-label>Content</mat-label>
+            <textarea matInput placeholder="content part" name="content" ngModel></textarea>
+        </mat-form-field>
+        <div class="button-spacing">
+            <button mat-raised-button color="accent" type="submit">Submit</button>
+        </div>
 
-<textarea rows="6" cols="50"></textarea>
-<button (click) = "clickMe()">submit</button>
-
-<p>test for interpolation: {{name}}</p>
-<p>test for two way binding: <input [(ngModel)]="postContent" placeholder="Enter Content"/></p>
-<p>Hello, this is your postContent: {{postContent}}</p>
+    </form>
+</mat-card>

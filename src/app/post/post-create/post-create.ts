@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PostService } from '../post.service';
+
 
 @Component({
   selector: 'app-post-create',
@@ -7,9 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './post-create.css',
 })
 export class PostCreate {
-  postContent = '';
-  name = 'Xiaohan';
-  clickMe() {
-    alert('submit button clicked!');
+  constructor(private postService: PostService) {}
+
+  addPost(form: NgForm) {
+    console.log(form.value.title);
+    console.log(form.value.content);
+    this.postService.addItem(form.value.title, form.value.content);
   }
 }

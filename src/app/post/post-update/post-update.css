@@ -1,0 +1,16 @@
+.form-container {
+  width: 96%;
+  margin: 1rem auto;
+}
+
+.full-width-field {
+  width: 100%;
+}
+
+.button-spacing {
+  margin-right: 8px;
+}
+
+.inline-disabled {
+  display: inline-block;
+}

@@ -68,4 +68,23 @@ export class PostService {
   getItemsUpdateListener() {
     return this.itemsUpdated.asObservable();
   }
+
+  getItem(id: string) {
+    return this.http.get<{ _id: string; title: string; content: string }>(
+      'http://localhost:3000/api/posts/' + id
+    );
+  }
+
+  updateItem(id: string, title: string, content: string) {
+    const post: PostModel = { id: id, title: title, content: content };
+    this.http
+      .put('http://localhost:3000/api/posts/' + id, post)
+      .subscribe((response) => {
+        const updatedItems = [...this.items];
+        const oldItemIndex = updatedItems.findIndex((p) => p.id === post.id);
+        updatedItems[oldItemIndex] = post;
+        this.items = updatedItems;
+        this.itemsUpdated.next([...this.items]);
+      });
+  }
 }

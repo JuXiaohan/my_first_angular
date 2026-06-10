@@ -14,13 +14,18 @@ export class PostList implements OnInit {
 
   constructor(private postService: PostService) {}
 
+  onDelete(postId: string) {
+    console.log(postId);
+    this.postService.deleteItem(postId);
+  }
+
   ngOnInit(): void {
-    this.postService.getItems();
     this.postService
       .getItemsUpdateListener()
-      .subscribe((pList: PostModel[]) => {
-        // pList[0, 1, 2]
-        this.posts = pList;
+      .subscribe((posts: PostModel[]) => {
+        this.posts = posts;
       });
+
+    this.postService.getItems();
   }
 }

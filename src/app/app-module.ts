@@ -14,9 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PostList } from './post/post-list/post-list';
 import { HttpClientModule } from '@angular/common/http';
+import { PostUpdate } from './post/post-update/post-update';
 
 @NgModule({
-  declarations: [App, PostCreate, Header, PostList],
+  declarations: [App, PostCreate, Header, PostList, PostUpdate],
   imports: [
     BrowserModule,
     AppRoutingModule,

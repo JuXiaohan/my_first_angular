@@ -1,17 +1,15 @@
 <mat-card>
   <form
     class="form-container"
-    (submit)="updatePost(postCreateForm)"
-    #postCreateForm="ngForm"
+    [formGroup]="form"
+    (submit)="updatePost()"
   >
     <mat-form-field class="full-width-field">
       <mat-label>Title</mat-label>
       <input
         matInput
         placeholder="Enter the title"
-        name="title"
-        [ngModel]="post?.title"
-        required
+        formControlName="title"
       />
     </mat-form-field>
 
@@ -20,8 +18,7 @@
       <textarea
         matInput
         placeholder="Enter the content"
-        name="content"
-        [ngModel]="post?.content"
+        formControlName="content"
       ></textarea>
     </mat-form-field>
 

@@ -1,16 +1,15 @@
 <mat-card>
-    <form
+    <form [formGroup]="form"
         class="form-container"
-        (submit)="addPost(postCreateForm)"
-        #postCreateForm="ngForm"
+        (submit)="addPost()"
     >
         <mat-form-field class="full-width-field">
             <mat-label>Title</mat-label>
-            <input matInput placeholder="title part" name="title" ngModel required>
+            <input matInput placeholder="title part" formControlName="title">
         </mat-form-field>
         <mat-form-field class="full-width-field">
             <mat-label>Content</mat-label>
-            <textarea matInput placeholder="content part" name="content" ngModel></textarea>
+            <textarea matInput placeholder="content part" formControlName="content"></textarea>
         </mat-form-field>
         <div class="button-spacing">
             <button mat-raised-button color="accent" type="submit">Submit</button>

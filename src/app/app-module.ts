@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { PostCreate } from './post/post-create/post-create';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Header } from './header/header';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +29,7 @@ import { PostUpdate } from './post/post-update/post-update';
     MatButtonModule,
     MatExpansionModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
 
   providers: [provideBrowserGlobalErrorListeners()],

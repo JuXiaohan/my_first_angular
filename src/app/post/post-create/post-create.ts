@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 
 
@@ -9,12 +9,33 @@ import { PostService } from '../post.service';
   templateUrl: './post-create.html',
   styleUrl: './post-create.css',
 })
-export class PostCreate {
+export class PostCreate implements OnInit {
+  form: FormGroup;
+  postItem = {};
+
   constructor(private postService: PostService) {}
 
-  addPost(form: NgForm) {
-    console.log(form.value.title);
-    console.log(form.value.content);
-    this.postService.addItem(form.value.title, form.value.content);
+  addPost() {
+    if (this.form.invalid) {
+      return;
+    }
+    this.postItem = {
+      title: this.form.value.title,
+      content: this.form.value.content,
+    };
+    console.log(this.postItem);
+    this.postService.addItem(this.form.value.title, this.form.value.content);
+    this.form.reset();
+  }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required],
+      }),
+      content: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
+    });
   }
 }
